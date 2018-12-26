@@ -1,17 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game_i_flutter/views/welcome/welcome_presenter.dart';
-import 'package:game_i_flutter/views/welcome/welcome_view.dart';
+import 'package:game_i_flutter/screens/settings/setting_page.dart';
+import 'package:game_i_flutter/base/routes.dart';
+import 'package:game_i_flutter/screens/welcome/welcome_presenter.dart';
+import 'package:game_i_flutter/screens/welcome/welcome_view.dart';
 
 class WelcomePage extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Contacts"),
-        ),
+
         body: ContactList(new WelcomePresenter()));
   }
 }
@@ -21,11 +19,9 @@ class WelcomePage extends StatelessWidget {
 ///
 
 class ContactList extends StatefulWidget {
-
   final WelcomePresenter presenter;
 
   ContactList(this.presenter, {Key key}) : super(key: key);
-
 
   @override
   _ContactListState createState() => _ContactListState();
@@ -95,5 +91,13 @@ class _ContactListState extends State<ContactList> implements WelcomeView {
     );
 
     return widget;
+  }
+
+  @override
+  void openSettingScreen() {
+    Navigator.push(
+      context,
+      new MyCustomRoute(builder: (context) => SettingPage()),
+    );
   }
 }

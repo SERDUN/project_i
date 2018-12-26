@@ -1,4 +1,4 @@
-import 'package:game_i_flutter/views/welcome/welcome_view.dart';
+import 'package:game_i_flutter/screens/welcome/welcome_view.dart';
 
 class WelcomePresenter {
   WelcomeView view;
@@ -9,6 +9,6 @@ class WelcomePresenter {
   }
 
   void onPlayAction() {
-    print("hello world btn click_________________________");
+    view.openSettingScreen();
   }
 }
